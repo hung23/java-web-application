@@ -42,6 +42,7 @@
 	</bean>
 	
 	<jpa:repositories base-package="vn.buitanhung.jba.repository" />
+	
 
 
 </beans>
