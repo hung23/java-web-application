@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.persistence.GeneratedValue;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +38,6 @@ public class InitDbService {
 	
 	@PostConstruct
 	public void init(){
-		
 		Role roleUser = new Role();
 		roleUser.setName("ROLE_USER");
 		roleRepository.save(roleUser);
@@ -73,6 +73,7 @@ public class InitDbService {
 		item2.setLink("http://www.javavids.com");
 		item2.setPublishedDate(new Date());
 		itemRepository.save(item2);
+		
 		
 	}
 
