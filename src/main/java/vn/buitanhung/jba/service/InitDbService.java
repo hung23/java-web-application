@@ -1,5 +1,6 @@
 package vn.buitanhung.jba.service;
 
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -9,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import vn.buitanhung.jba.entity.Blog;
@@ -23,7 +25,6 @@ import vn.buitanhung.jba.repository.UserRepository;
 @Transactional
 @Service
 public class InitDbService {
-	
 	@Autowired
 	private RoleRepository roleRepository;
 	
@@ -47,7 +48,10 @@ public class InitDbService {
 		roleRepository.save(roleAdmin);
 		
 		User userAdmin = new User();
+		userAdmin.setEnabled(true);
 		userAdmin.setName("admin");
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		userAdmin.setPassword(encoder.encode("admin"));
 		List<Role> roles = new ArrayList<Role>();
 		roles.add(roleAdmin);
 		roles.add(roleUser);
@@ -76,5 +80,6 @@ public class InitDbService {
 		
 		
 	}
+
 
 }

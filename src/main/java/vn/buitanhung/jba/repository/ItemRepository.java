@@ -1,10 +1,17 @@
 package vn.buitanhung.jba.repository;
 
+import java.util.List;
+
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import vn.buitanhung.jba.entity.Blog;
 import vn.buitanhung.jba.entity.Item;
-import vn.buitanhung.jba.entity.Role;
 
 public interface ItemRepository extends JpaRepository<Item,Integer> {
+	
+	List<Item> findByBlog(Blog blog , Pageable pageable);
+	
+	Item findByBlogAndLink(Blog blog ,String link);
 
 }

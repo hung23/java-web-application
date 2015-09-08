@@ -39,6 +39,10 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
-	<jpa:repositories base-package="vn.buitanhung.jpa.repository" />
+
+	<jpa:repositories base-package="vn.buitanhung.jba.repository"
+		entity-manager-factory-ref="emf" transaction-manager-ref="transactionManager" />
+		
+		<import resource="security.xml" />
 
 </beans>
