@@ -3,6 +3,7 @@ package vn.buitanhung.jba.entity;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -26,6 +27,7 @@ public class Blog {
 	
 	@Size(min=1,message="invalid URL !")
 	@URL(message="invalid URL !")
+	@Column(length = 1000)
 	private String url;
 	
 	@ManyToOne

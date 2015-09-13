@@ -54,9 +54,7 @@ public class RssService {
 					Date pubDate = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss Z",Locale.ENGLISH).parse(rssItem.getPubDate());
 					item.setPublishedDate(pubDate);
 					list.add(item);
-					
 				}
-				
 			}
 		} catch (JAXBException e) {
 			throw new RssException(e);
